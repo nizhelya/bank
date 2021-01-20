@@ -1,0 +1,121 @@
+<?php
+$API = array(
+'QueryAddress'=>array(
+        'methods'=>array(
+            'getResults'=>array(
+                'len'=>1
+					),
+            'updateRecords'=>array(
+            	'len'=>1
+           )
+        )
+    ),
+'QueryLoad'=>array(
+       'methods'=>array(
+            'getResults'=>array(
+                'len'=>1
+            )        
+        )
+    ),
+'QueryVodomer'=>array(
+        'methods'=>array(
+            'getResults'=>array(
+                'len'=>1
+	  ),
+	      'addVodomer'=>array(
+                'len'=>1
+	  ),
+	      'delVodomer'=>array(
+                'len'=>1
+	  ),
+	      'spisanVodomer'=>array(
+                'len'=>1
+	  ),
+	      'inVodomerHistory'=>array(
+                'len'=>1
+	  ),
+	      'outVodomerHistory'=>array(
+                'len'=>1
+	  ),
+	      'delPokVodomera'=>array(
+                'len'=>1
+	  ),
+	      'updateVodomer'=>array(
+                'len'=>1
+	  ),
+	      'newPokVodomera'=>array(
+                'len'=>1
+	  )
+           
+       )
+   ),
+'QueryKassa'=>array(
+        'methods'=>array(
+            'getResults'=>array(
+                'len'=>1
+	  ),
+	      'newOplata'=>array(
+                'len'=>1
+	  ),
+	      'delOplata'=>array(
+                'len'=>1
+	  ),
+	      'getRaspechatka'=>array(
+                'len'=>1
+	  )
+           
+       )
+    ),
+'QuerySprav'=>array(
+       'methods'=>array(
+            'getResults'=>array(
+                'len'=>1
+                        ),
+				'getProcedure'=>array(
+                'len'=>1
+                        ),
+            'createRecord'=>array(
+            	'len'=>1
+            ),
+            'updateRecords'=>array(
+            	'len'=>1
+            ),
+            'destroyRecord'=>array(
+            	'len'=>1
+            )          
+        )
+    ),
+'QueryReport'=>array(
+       'methods'=>array(
+            'getResults'=>array(
+                'len'=>1
+            ),
+						'printSvod'=>array(
+                'len'=>1
+            ),
+            'getXls'=>array(
+                'len'=>1
+            )             
+        )
+    ),
+'QueryExport'=>array(
+       'methods'=>array(
+            'getResults'=>array(
+                'len'=>1
+            ),
+            'exportSvod'=>array(
+                'len'=>1
+            )             
+        )
+    ),
+'QueryUserLogin'=>array(
+        'methods'=>array(
+                   
+              'login'=>array(
+                 'len'=> 1
+                )
+        )
+    )
+);
+
+

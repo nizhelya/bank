@@ -1,0 +1,13 @@
+{
+    "type": "Ext.app.ViewController",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "winOtdelenie",
+        "designer|userClassName": "sprav.WinOtdelenieViewController"
+    },
+    "designerId": "8dae716b-5980-418a-82e0-8634d45c2045"
+}

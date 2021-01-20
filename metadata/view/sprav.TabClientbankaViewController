@@ -1,0 +1,13 @@
+{
+    "type": "Ext.app.ViewController",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "tabClientBanka",
+        "designer|userClassName": "sprav.TabClientbankaViewController"
+    },
+    "designerId": "539a111c-17cc-4daf-9983-e983e68dc0c2"
+}

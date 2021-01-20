@@ -1,0 +1,13 @@
+{
+    "type": "Ext.app.ViewModel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "winClientBanka",
+        "designer|userClassName": "sprav.WinClientBankaViewModel"
+    },
+    "designerId": "36aad848-7023-4831-a35f-c48f8893e7ec"
+}

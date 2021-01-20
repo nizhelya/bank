@@ -1,0 +1,530 @@
+<?php
+include_once './yis_config.php';
+
+class QuerySprav
+{
+	private $_db;
+	protected $result;
+	protected $sql_total;
+	protected $total;
+	protected $key;
+	protected $count;
+	protected $sql;	
+	protected $sql_callback;
+	protected $row;	
+	protected $id;
+	protected $what;	
+	protected $res=array();	
+	public	  $results=array();
+	
+	public function __construct()
+	{
+		//                 'hostname', 'username' ,'password', 'database'
+		$_db = new mysqli('localhost', LOGIN ,PASSWORD, 'YIS');
+		
+		if ($_db->connect_error) {
+			die('Connection Error (' . $_db->connect_errno . ') ' . $_db->connect_error);
+		}
+		$_db->set_charset("utf8");
+    
+		return $_db;
+	}
+
+
+	public function getResults(stdClass $params)  // ================================= GET RESULTS
+	{
+		$_db = $this->__construct();
+
+	$array = (array) $params;
+
+		foreach ( $array as $key => $value ) 
+		    {
+			if(isset($value)) {
+			    if (is_int($value)) { $this->$key= (int)$value;}
+			    else if (is_float($value)) { $this->$key= $value;}
+			    else {$this->$key =$value;}
+			}
+		    }
+
+		switch ($this->what) {
+		
+			case "getOperator"://применяется
+				  $this->sql='SELECT * FROM YISGRAND.'.$this->tbank.'USERS ORDER BY user_id DESC';
+
+		//	print( $this->sql);
+			break;
+			case "getOtdelenie"://применяется
+				  $this->sql='SELECT * FROM YISGRAND.'.$this->tbank.'OTDELENIE ORDER BY otdel_id DESC';
+
+		//	print( $this->sql);
+			break;
+			case "getClientBanka"://применяется
+				  $this->sql='SELECT * FROM YISGRAND.BANK_CLIENT ORDER BY client_id DESC';
+
+		//	print( $this->sql);
+			break;
+			case "getReestr"://применяется
+				  $this->sql='SELECT * FROM YISGRAND.'.$this->tbank.'REESTR WHERE address_id = '.$this->address_id.' ORDER BY data DESC';
+
+			//print( $this->sql);
+			break;
+			
+	 case "getSvodOtdelenie"://применяется
+			
+				  $this->sql='SELECT * FROM YISGRAND.'.$this->tbank.'SVOD  ORDER BY id DESC';
+		
+			break;
+		} 	
+
+		$_result = $_db->query($this->sql) or die('Connect Error in '.$this->what.' ( ' . $this->sql . ' ) ' . $_db->connect_error);
+
+		while ($this->row = $_result->fetch_assoc()) {
+			array_push($this->res, $this->row);
+		}
+		$this->results['data']	= $this->res;
+		$this->results['total']	= $this->total;
+		
+		return $this->results;
+	}  // ================================= GET RESULTS
+
+public function getProcedure(stdClass $params)    
+		{
+	
+
+		$_db = $this->__construct();
+	
+		$array = (array) $params;
+		foreach ( $array as $key => $value ) 
+		  {
+		  if(isset($value)) { 
+					if (is_int($value)) { $this->$key= (int)$value;}
+					else if (is_float($value)) { $this->$key= $value;}
+					else {$this->$key =$_db->real_escape_string($value);}
+		  }
+		}
+
+		switch ($this->what) {
+
+		    case "getSvodOtdelenie":
+							$this->sql='CALL YISGRAND.Bank_'.$this->tbank.'Svod('.$this->otdel_id.',"'.$this->pr.'","'.$this->data.'",'.$this->user_id.', @success, @msg)';
+				break;
+			
+		}  
+
+		$this->result = $_db->query($this->sql) or die('Connect Error in '.$this->what.' ('.$this->sql.') ' . $_db->connect_error);
+		
+		$this->sql_callback='SELECT @success, @msg';
+
+		$this->res_callback = $_db->query($this->sql_callback) or die('Connect Error >>>  ' . $_db->connect_errno . '  <<< ' . $_db->connect_error);
+		
+		while ($this->row = $this->res_callback->fetch_assoc()) {
+			$this->results['success'] = $this->row['@success'];
+			$this->results['msg'] = $this->row['@msg'];
+		
+		}
+		
+		return $this->results;
+
+	}
+
+
+	public function createRecord(stdClass $params) // ================================= CREATE RECORD
+	{
+
+		$_db = $this->__construct();
+
+		$array = (array) $params;
+
+		foreach ( $array as $key => $value ) 
+		    {
+			if(isset($value)) {
+			    if (is_int($value)) { $this->$key= (int)$value;}
+			    else if (is_float($value)) { $this->$key= $value;}
+			    else {$this->$key =$_db->real_escape_string($value);}
+			}
+		    }
+		switch ($this->what) {
+
+		
+			case "insertOperator"://применяется
+			      $sql = 'INSERT INTO YISGRAND.'.$this->tbank.'USERS (login,password,role ) VALUES (?,?,?)';
+
+			      $stmt = $_db->prepare($sql) or die('Connect Error in '.$this->what.' ( ' . $sql . ' ) ' . $_db->connect_error);
+
+				    $stmt->bind_param('sss',$login,$password,$role);
+
+				    $login =  $params->login;
+				    $password =  sha1($params->password);
+				    $role =  $params->role;
+
+				
+				    $stmt->execute();
+						$newid= mysqli_insert_id($_db);
+						if ($newid > 0 ) {
+								$this->results['success'] = true;
+								$this->results['new_id'] = $newid;
+						}
+							$stmt->close();
+
+
+			  break;
+			case "insertOtdelenie"://применяется
+			      $sql = 'INSERT INTO YISGRAND.'.$this->tbank.'OTDELENIE (otdel,address,account,taccount,timeout ) VALUES (?,?,?,?,?)';
+
+			      $stmt = $_db->prepare($sql) or die('Connect Error in '.$this->what.' ( ' . $sql . ' ) ' . $_db->connect_error);
+
+				    $stmt->bind_param('ssssi',$otdel,$address,$account,$taccount,$timeout);
+
+				    $otdel =  $params->otdel;
+				    $address = $params->address;
+				    $account =  $params->account;
+				    $taccount =  $params->taccount;
+				    $timeout = $params->timeout;
+				
+				    $stmt->execute();
+						$newid= mysqli_insert_id($_db);
+						if ($newid > 0 ) {
+								$this->results['success'] = true;
+								$this->results['new_id'] = $newid;
+						}
+							$stmt->close();
+
+
+			  break;
+			case "insertClientBanka"://применяется
+			      $sql = 'INSERT INTO YISGRAND.BANK_CLIENT (client,bank,address,mfo,okpo,account,detali,usluga ) VALUES (?,?,?,?,?,?,?,?)';
+
+			      $stmt = $_db->prepare($sql) or die('Connect Error in '.$this->what.' ( ' . $sql . ' ) ' . $_db->connect_error);
+
+						$stmt->bind_param('sssiisss',$client,$bank , $address,$mfo,$okpo,$account,$detali,$usluga);
+
+				    $client =  $params->client;
+				    $address = $params->address;
+				    $account =  $params->account;
+				    $bank =  $params->bank;
+				    $mfo = $params->mfo;
+						$okpo =  $params->okpo;
+				    $detali = $params->detali;
+				    $usluga =  $params->usluga;
+				    $stmt->execute();
+						$newid= mysqli_insert_id($_db);
+						if ($newid > 0 ) {
+								$this->results['success'] = true;
+								$this->results['new_id'] = $newid;
+						}
+							$stmt->close();
+
+
+			  break;
+		
+		}
+
+		return $this->results;
+
+	} // ================================= CREATE RECORD
+
+
+		public function destroyRecord(stdClass $params)      // ================================= DESTROY RECORD
+		{
+
+		$_db = $this->__construct();
+
+
+		$array = (array) $params;
+
+		foreach ( $array as $key => $value ) 
+		    {
+			if(isset($value)) {
+			    if (is_int($value)) { $this->$key= (int)$value;}
+			    else if (is_float($value)) { $this->$key= $value;}
+			    else {$this->$key =$_db->real_escape_string($value);}
+			}
+		    }
+
+		switch ($this->what) {
+
+			case "deleteOperator":
+						$this->sql='SELECT count(YISGRAND.'.$this->tbank.'REESTR.`user_id`) FROM YISGRAND.'.$this->tbank.'REESTR WHERE YISGRAND.'.$this->tbank.'REESTR.`user_id`= '.$this->user_id;
+					  $_result = $_db->query($this->sql) or die('Connect Error in '.$this->what.' ( ' . $this->sql . ' ) ' . $_db->connect_error);
+
+					  $row = $_result->fetch_array();
+					  $total = $row[0]; // всего записей
+					  if ($total) { 
+						 $this->results['success']= false;
+						 $this->results['msg']= 'Невозможно удалить:<br> по оператору имеются записи в реестре';
+
+
+					  } else  {
+							$id = $params->user_id;
+							$this->sql = 'DELETE FROM YISGRAND.'.$this->tbank.'USERS WHERE YISGRAND.'.$this->tbank.'USERS.user_id = ? LIMIT 1';
+							
+									$stmt = $_db->prepare($this->sql) or die('Connect Error in '.$this->what.' ( ' . $this->sql . ' ) ' . $_db->connect_error);
+									$stmt->bind_param('i', $id);
+									$stmt->execute();
+									 $rows=mysqli_affected_rows($_db);
+						if ($rows > 0 ) {
+								$this->results['success'] = true;
+								$this->results['rows'] = $rows;
+								$this->results['msg'] = 'Оператор удален';
+
+						} 
+							$stmt->close();
+									
+						}				 
+
+			  break;
+				case "deleteOtdelenie":
+						
+						$this->sql='SELECT count(YISGRAND.'.$this->tbank.'REESTR.`kod`) FROM YISGRAND.'.$this->tbank.'REESTR WHERE YISGRAND.'.$this->tbank.'REESTR.`otdel_id`= '.$this->otdel_id;
+					  $_result = $_db->query($this->sql) or die('Connect Error in '.$this->what.' ( ' . $this->sql . ' ) ' . $_db->connect_error);
+
+					  $row = $_result->fetch_array();
+					  $total = $row[0]; // всего записей
+					  if ($total) { 
+						 $this->results['success']= false;
+						 $this->results['msg']= 'Невозможно удалить:<br> по отделению имеются записи в реестре';
+
+
+					  } else  {
+							$id = $params->otdel_id;
+							$this->sql = 'DELETE FROM YISGRAND.'.$this->tbank.'OTDELENIE WHERE YISGRAND.'.$this->tbank.'OTDELENIE.otdel_id = ? LIMIT 1';
+							
+									$stmt = $_db->prepare($this->sql) or die('Connect Error in '.$this->what.' ( ' . $this->sql . ' ) ' . $_db->connect_error);
+									$stmt->bind_param('i', $id);
+									$stmt->execute();
+									 $rows=mysqli_affected_rows($_db);
+						if ($rows > 0 ) {
+								$this->results['success'] = true;
+								$this->results['rows'] = $rows;
+								$this->results['msg'] = 'Отделение удалено';
+
+						} 
+							$stmt->close();
+									
+						}		
+			  break;
+				case "deleteClientBanka":
+						
+						$this->sql='SELECT count(YISGRAND.'.$this->tbank.'REESTR.`client_id`) FROM YISGRAND.'.$this->tbank.'REESTR WHERE YISGRAND.'.$this->tbank.'REESTR.`client_id`= '.$this->client_id;
+					  $_result = $_db->query($this->sql) or die('Connect Error in '.$this->what.' ( ' . $this->sql . ' ) ' . $_db->connect_error);
+
+					  $row = $_result->fetch_array();
+					  $total = $row[0]; // всего записей
+					  if ($total) { 
+						 $this->results['success']= false;
+						 $this->results['msg']= 'Невозможно удалить:<br> по клиенту имеются записи в реестре';
+
+
+					  } else  {
+							$id = $params->client_id;
+							$this->sql = 'DELETE FROM YISGRAND.BANK_CLIENT WHERE YISGRAND.BANK_CLIENT.client_id = ? LIMIT 1';
+							
+									$stmt = $_db->prepare($this->sql) or die('Connect Error in '.$this->what.' ( ' . $this->sql . ' ) ' . $_db->connect_error);
+									$stmt->bind_param('i', $id);
+									$stmt->execute();
+									 $rows=mysqli_affected_rows($_db);
+						if ($rows > 0 ) {
+								$this->results['success'] = true;
+								$this->results['rows'] = $rows;
+								$this->results['msg'] = 'Клиент банка удален';
+
+						
+				    
+
+						} 
+							$stmt->close();
+									
+						}		
+			  break;
+				case "getReestr":
+						
+						$this->sql='SELECT count(YIS.OPLATA.address_id`) FROM YIS.OPLATA WHERE YIS.OPLATA.`address_id`= '.$this->address_id.' AND YIS.OPLATA.`data`= '.$this->data.' AND YIS.OPLATA.`nomer`= '.$this->nom;
+					  $_result = $_db->query($this->sql) or die('Connect Error in '.$this->what.' ( ' . $this->sql . ' ) ' . $_db->connect_error);
+
+					  $row = $_result->fetch_array();
+					  $total = $row[0]; // всего записей
+					  if ($total) { 
+						 $this->results['success']= false;
+						 $this->results['msg']= 'Невозможно удалить:<br> по адресу имеются записи в базе оплаты ЮКИС';
+
+
+					  } else  {
+						
+				    
+
+							$id = $params->address_id;
+							$nom = $params->nom;
+							$data = $params->data;
+
+					$this->sql = 'DELETE FROM YISGRAND.'.$this->tbank.'REESTR WHERE YISGRAND.'.$this->tbank.'REESTR.address_id = ? AND AND YISGRAND.'.$this->tbank.'REESTR.data= ? AND YISGRAND.'.$this->tbank.'REESTR.nom = ? ';
+							
+									$stmt = $_db->prepare($this->sql) or die('Connect Error in '.$this->what.' ( ' . $this->sql . ' ) ' . $_db->connect_error);
+									$stmt->bind_param('idi', $id,$data,$nom);
+									$stmt->execute();
+									 $rows=mysqli_affected_rows($_db);
+						if ($rows > 0 ) {
+								$this->results['success'] = true;
+								$this->results['rows'] = $rows;
+								$this->results['msg'] = 'Оплата из реестра удалена';
+
+						} 
+							$stmt->close();
+									
+						}		
+			  break;
+		
+		}
+
+		return $this->results;
+
+
+		} 
+		public function updateRecords(stdClass $params)      // ================================= UPDATE RECORD
+		{
+
+		$_db = $this->__construct();
+
+		$array = (array) $params;
+
+		foreach ( $array as $key => $value ) 
+		    {
+			if(isset($value)) {
+			    if (is_int($value)) { $this->$key= (int)$value;}
+			    else if (is_float($value)) { $this->$key= $value;}
+			    else {$this->$key =$_db->real_escape_string($value);}
+			}
+		    }
+
+		switch ($this->what) {
+	
+			case "updateOperator":
+
+						if ($params->newPasswoed){
+									$sql = 'UPDATE YISGRAND.'.$this->tbank.'USERS SET login=?, password=?, role=? WHERE YISGRAND.'.$this->tbank.'USERS.user_id=?';
+									$stmt = $_db->prepare($sql) or die('Connect Error in '.$this->what.' ( ' . $sql . ' ) ' . $_db->connect_error);
+									$stmt->bind_param('sssi', $login, $password, $role,$user_id);
+
+						}else{
+									$sql = 'UPDATE YISGRAND.'.$this->tbank.'USERS SET login=?, role=? WHERE YISGRAND.'.$this->tbank.'USERS.user_id=?';
+									$stmt = $_db->prepare($sql) or die('Connect Error in '.$this->what.' ( ' . $sql . ' ) ' . $_db->connect_error);
+									$stmt->bind_param('ssi', $login,  $role,$user_id);
+						}
+
+
+
+				    $user_id	 =  $params->user_id;
+				    $login	 =  $params->login;
+				    $password	 =  sha1($params->password);
+				    $role	 =  $params->role;
+
+				    $stmt->execute();
+					  $rows=mysqli_affected_rows($_db);
+						if ($rows > 0 ) {
+								$this->results['success'] = true;
+								$this->results['rows'] = $rows;
+						}
+							$stmt->close();
+
+
+			  break;
+			case "updateOtdelenie":
+
+					
+									$sql = 'UPDATE YISGRAND.'.$this->tbank.'OTDELENIE SET otdel_id = ?, otdel=?, address=?,account=?, taccount=? ,timeout=?  WHERE YISGRAND.'.$this->tbank.'OTDELENIE.otdel_id=?';
+									$stmt = $_db->prepare($sql) or die('Connect Error in '.$this->what.' ( ' . $sql . ' ) ' . $_db->connect_error);
+									$stmt->bind_param('issssii',$newid, $otdel,$address,$account,$taccount,$timeout,$otdel_id);
+
+					
+						
+				    $otdel_id	 =  $params->otdel_id;
+				    $newid	 =  $params->newid;
+				    $otdel =  $params->otdel;
+				    $address = $params->address;
+				    $account =  $params->account;
+				    $taccount =  $params->taccount;
+				    $timeout = $params->timeout;
+				
+				    $stmt->execute();
+					  $rows=mysqli_affected_rows($_db);
+						if ($rows > 0 ) {
+								$this->results['success'] = true;
+								$this->results['rows'] = $rows;
+						}
+							$stmt->close();
+
+
+			  break;
+
+			case "updateClientBanka":
+
+				$sql = 'UPDATE YISGRAND.BANK_CLIENT SET client=?,bank = ?, address=?, mfo = ?, okpo = ? , account=?, detali=? ,usluga=?  WHERE YISGRAND.BANK_CLIENT.client_id=?';
+				$stmt = $_db->prepare($sql) or die('Connect Error in '.$this->what.' ( ' . $sql . ' ) ' . $_db->connect_error);
+				$stmt->bind_param('sssiisssi',$client,$bank , $address,$mfo,$okpo,$account,$detali,$usluga, $client_id);
+
+						
+				    $client_id = $params->client_id;
+				    $client =  $params->client;
+				    $address = $params->address;
+				    $account =  $params->account;
+				    $bank =  $params->bank;
+				    $mfo = $params->mfo;
+						$okpo =  $params->okpo;
+				    $detali = $params->detali;
+				    $usluga =  $params->usluga;
+				
+				    $stmt->execute();
+					  $rows=mysqli_affected_rows($_db);
+						if ($rows > 0 ) {
+								$this->results['success'] = true;
+								$this->results['rows'] = $rows;
+						}
+							$stmt->close();
+
+
+			  break;
+		
+			case "getReestr":
+				    $address_id	 =  $this->address_id;
+				    $data =substr($this->data,0,10);
+				    $pr = $this->pr;
+				    $out= $this->out;
+				    $nom= $this->nom;
+//$sql = 'UPDATE YISGRAND.'.$this->tbank.'REESTR SET `pr`="'.$pr.'" , `out` = '.$out.' WHERE YISGRAND.'.$this->tbank.'REESTR.address_id = '.$address_id.' AND YISGRAND.'.$this->tbank.'REESTR.data = "'.$data.'" AND YISGRAND.'.$this->tbank.'REESTR.nom = '.$nom.' ';
+//print($sql);
+				$sql = 'UPDATE YISGRAND.'.$this->tbank.'REESTR,YIS.OPLATA SET YISGRAND.'.$this->tbank.'REESTR.`pr`=? , YIS.OPLATA.pr = ? ,YISGRAND.'.$this->tbank.'REESTR.`out`=? '
+.' WHERE YISGRAND.'.$this->tbank.'REESTR.address_id = ? AND YIS.OPLATA.address_id = ? AND YISGRAND.'.$this->tbank.'REESTR.data = ? AND '
+									.' YISGRAND.'.$this->tbank.'REESTR.nom = ?  AND YIS.OPLATA.nomer = ? ' ;
+									$stmt = $_db->prepare($sql) or die('Connect Error in '.$this->what.' ( ' . $sql . ' ) ' . $_db->connect_error);
+									$stmt->bind_param('ssiiisii',$pr,$pr,$out,$address_id,$address_id,$data,$nom,$nom);
+				    $stmt->execute();
+					  $rows=mysqli_affected_rows($_db);
+						if ($rows > 0 ) {
+								$this->results['success'] = true;
+								$this->results['rows'] = $rows;
+						}
+							$stmt->close();
+
+
+			  break;
+		
+		}
+
+		return $this->results;
+
+	} // ================================= UPDATE RECORD
+
+
+
+
+
+
+
+
+	public function __destruct()
+	{
+		$_db = $this->__construct();
+		$_db->close();
+		
+		return $this;
+	}
+}

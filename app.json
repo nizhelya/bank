@@ -1,0 +1,84 @@
+{
+   "name": "Bank",
+   "version": "1.0.0.0",
+   "indexHtmlPath": "index.html",
+   "classpath": "${app.dir}/app",
+   "overrides": "${app.dir}/overrides",
+   "framework": "ext",
+   "theme": "ext-theme-gray",
+   "requires": [],
+   "sass": {
+      "namespace": "Bank"
+   },
+   "js": [
+      {
+         "path": "${framework.dir}/build/ext-all-rtl-debug.js"
+      },
+      {
+         "path": "app.js",
+         "bundle": true
+      }
+   ],
+   "css": [
+      {
+         "path": "bootstrap.css",
+         "bootstrap": true
+      },
+      {
+         "path": "resources/css/reports.css"
+      },
+      {
+         "path": "resources/css/schet.css"
+      },
+      {
+         "path": "resources/css/ykis_style.css"
+      },
+      {
+         "path": "resources/css/ykis_news.css"
+      },
+      {
+         "path": "resources/css/ykis_images.css"
+      }
+   ],
+   "production": {},
+   "testing": {},
+   "development": {},
+   "bootstrap": {
+      "base": "${app.dir}",
+      "manifest": "bootstrap.json",
+      "microloader": "bootstrap.js",
+      "css": "bootstrap.css"
+   },
+   "output": {
+      "base": "${workspace.build.dir}/${build.environment}/${app.name}"
+   },
+   "appCache": {
+      "cache": [
+         "index.html"
+      ],
+      "network": [
+         "*"
+      ],
+      "fallback": []
+   },
+   "resources": [
+      "resources/css/reports.css",
+      "resources/css/schet.css",
+      "resources/css/ykis_style.css",
+      "resources/css/ykis_news.css",
+      "resources/css/ykis_images.css"
+   ],
+   "ignore": [
+      "(^|/)CVS(/?$|/.*?$)"
+   ],
+   "archivePath": "archive",
+   "slicer": {
+      "js": [
+         {
+            "path": "${app.dir}/sass/example/custom.js",
+            "isWidgetManifest": true
+         }
+      ]
+   },
+   "id": "37cf828d-6e1c-451f-8c46-103d651898b6"
+}

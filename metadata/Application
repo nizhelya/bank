@@ -1,0 +1,115 @@
+{
+    "type": "Ext.app.Application",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "controllers": [
+            "Admin",
+            "CrKassa",
+            "CrLeftMenu",
+            "CrLogin",
+            "crOtchet"
+        ],
+        "models": [
+            "MdLgotnik",
+            "MdHouses",
+            "MdOplata",
+            "MdBank",
+            "MdSvod",
+            "MdUser",
+            "MdStreet",
+            "MdTekNachKassa",
+            "MdLoginLocal",
+            "MdAddress",
+            "MdPriborUcheta",
+            "MdAppartment",
+            "MdLogin",
+            "MdRaion",
+            "MdTreeSprav"
+        ],
+        "name": "Bank",
+        "stores": [
+            "StLoginLocal",
+            "StHouses",
+            "StTreeSprav",
+            "StOtdelenieBank",
+            "StOplata",
+            "StOperatorBank",
+            "StReestr",
+            "StReport",
+            "StLgotnik",
+            "StStreet",
+            "StTekPokVodomera",
+            "StUsluga",
+            "StRole",
+            "StSvod",
+            "StUser",
+            "StCbOtdelenieBank",
+            "StAddress",
+            "StVodomerKassa",
+            "StLogin",
+            "StRaion",
+            "StWater",
+            "StTekOplata",
+            "StPriznak",
+            "StTekNachKassa",
+            "StAppartment",
+            "StClientBanka",
+            "StCbOperatorBank"
+        ],
+        "views": [
+            "sprav.TabReportOrg",
+            "NField",
+            "sprav.WinUploadFile",
+            "sprav.TabClientbanka",
+            "NFieldVodomer",
+            "flat.TabKassa",
+            "sprav.TabOtdelenie",
+            "menu.TabPnLeft",
+            "VpKommuna",
+            "sprav.TabSvod",
+            "sprav.TabReestr",
+            "sprav.WinOtdelenie",
+            "sprav.WinClientBanka",
+            "sprav.WinReport",
+            "sprav.TabOperator",
+            "sprav.WinOperator",
+            "sprav.TabLogin",
+            "user.WinLogin",
+            "user.FmLogin",
+            "menu.TabPnCenter"
+        ]
+    },
+    "name": "Application",
+    "designerId": "application",
+    "cn": [
+        {
+            "type": "fixedfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "launch",
+                "implHandler": [
+                    "",
+                    "//закрываем значок загрузка...",
+                    "var loading =Ext.get('loading');",
+                    "if(loading){",
+                    "    setTimeout(function(){",
+                    "",
+                    "        loading.remove();",
+                    "        Ext.get('loading-mask').fadeOut({remove:true});",
+                    "    }, 250);",
+                    "}"
+                ]
+            },
+            "name": "launch",
+            "designerId": "d1acca29-d992-47da-90da-202625b7efa2"
+        }
+    ]
+}

@@ -1,0 +1,13 @@
+{
+    "type": "Ext.app.ViewController",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "tabOtdelenie",
+        "designer|userClassName": "sprav.TabOtdelenieViewController"
+    },
+    "designerId": "98c3ee67-b092-456c-98a0-0f424f1066ef"
+}

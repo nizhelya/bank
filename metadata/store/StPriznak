@@ -1,0 +1,67 @@
+{
+    "type": "arraystore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "data": [
+            "[{\"pr\":\"D\",\"kassa\":\"Дневная\"},{\"pr\":\"W\",\"kassa\":\"Вечерняя\"}]"
+        ],
+        "designer|userAlias": "stPriznak",
+        "designer|userClassName": "StPriznak",
+        "storeId": "stPriznak"
+    },
+    "designerId": "62256505-2afc-4e72-b849-24c3b7d3db4b",
+    "cn": [
+        {
+            "type": "Ext.data.proxy.Ajax",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "name": "MyAjaxProxy2",
+            "designerId": "a9c9c12e-841b-45ff-9b80-3032aec5b128",
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Array",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "name": "MyArrayReader2",
+                    "designerId": "76e433f7-9342-458a-b3e6-daa94413ca31"
+                }
+            ]
+        },
+        {
+            "type": "Ext.data.field.String",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "pr"
+            },
+            "name": "MyString67",
+            "designerId": "74d5cc47-89a0-4fc1-a58b-a81a7788e0a4"
+        },
+        {
+            "type": "Ext.data.field.String",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "kassa"
+            },
+            "name": "MyString68",
+            "designerId": "cd67a454-8b66-4662-af7d-b5af38133b64"
+        }
+    ]
+}

@@ -1,0 +1,13 @@
+{
+    "type": "cssresource",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "css4",
+        "url": "resources/css/ykis_images.css"
+    },
+    "designerId": "d1e3efed-30f6-4484-9f6e-70e85e4254b1"
+}

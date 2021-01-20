@@ -1,0 +1,13 @@
+{
+    "type": "Ext.app.ViewController",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "tabReestr",
+        "designer|userClassName": "sprav.TabReestrViewController"
+    },
+    "designerId": "f5393e88-dbfe-4f87-bc30-4a19b1ad76bc"
+}

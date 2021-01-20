@@ -1,0 +1,41 @@
+{
+    "type": "Ext.data.Model",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "mdTreeSprav",
+        "designer|userClassName": "MdTreeSprav"
+    },
+    "designerId": "e6b226d8-2e98-4f93-87e3-52a7604b036c",
+    "cn": [
+        {
+            "type": "Ext.data.field.String",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "id"
+            },
+            "name": "MyString84",
+            "designerId": "8ff18390-e1c6-42a1-8b2e-8c163cf52eb7"
+        },
+        {
+            "type": "Ext.data.field.String",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "text"
+            },
+            "name": "MyString85",
+            "designerId": "23dde118-be32-4a77-b4d0-7cd6b00365e0"
+        }
+    ]
+}

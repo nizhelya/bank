@@ -1,0 +1,13 @@
+{
+    "type": "Ext.app.ViewModel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "winOtdelenie",
+        "designer|userClassName": "sprav.WinOtdelenieViewModel"
+    },
+    "designerId": "2caf8828-f911-4030-bc53-91eb53d21cc8"
+}

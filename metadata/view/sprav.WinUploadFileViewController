@@ -1,0 +1,13 @@
+{
+    "type": "Ext.app.ViewController",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "winUploadFile",
+        "designer|userClassName": "sprav.WinUploadFileViewController"
+    },
+    "designerId": "55317f71-367b-40c5-b619-49baee55e96b"
+}

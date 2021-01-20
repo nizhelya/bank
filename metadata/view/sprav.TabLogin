@@ -1,0 +1,22 @@
+{
+    "type": "Ext.panel.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "tablogin",
+        "designer|userClassName": "sprav.TabLogin",
+        "html": null,
+        "id": "tabLogin",
+        "title": ""
+    },
+    "configAlternates": {
+        "html": "string",
+        "scrollable": "boolean"
+    },
+    "designerId": "591baf9a-cd3b-42dd-b91e-52ce6654a67a",
+    "viewControllerInstanceId": "dc53ca4f-2af4-40e3-9be4-90ee276897e3",
+    "viewModelInstanceId": "b0a54f79-8fb6-4874-aada-206eb2c53e16"
+}

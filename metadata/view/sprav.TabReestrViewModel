@@ -1,0 +1,13 @@
+{
+    "type": "Ext.app.ViewModel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "tabReestr",
+        "designer|userClassName": "sprav.TabReestrViewModel"
+    },
+    "designerId": "6a7b635c-6c8a-4229-b6e3-1dda4f9bb5be"
+}

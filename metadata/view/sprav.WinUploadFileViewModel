@@ -1,0 +1,13 @@
+{
+    "type": "Ext.app.ViewModel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "winUploadFile",
+        "designer|userClassName": "sprav.WinUploadFileViewModel"
+    },
+    "designerId": "3c5a72a0-671b-4167-8935-d4ef817eb5a1"
+}

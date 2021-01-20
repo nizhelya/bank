@@ -1,0 +1,223 @@
+{
+    "type": "Ext.data.Model",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "mdSvod",
+        "designer|userClassName": "MdSvod"
+    },
+    "designerId": "df5ee3de-491e-4f9f-9227-6e37b5c12508",
+    "cn": [
+        {
+            "type": "Ext.data.field.Integer",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "id"
+            },
+            "name": "MyInteger72",
+            "designerId": "fe3e4b9b-b299-4f74-a535-3b59b42884eb"
+        },
+        {
+            "type": "Ext.data.field.String",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "nomer"
+            },
+            "name": "MyString69",
+            "designerId": "125ff009-5bcf-4c37-b0ee-b5411fb5b6e7"
+        },
+        {
+            "type": "Ext.data.field.String",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "type"
+            },
+            "name": "MyString70",
+            "designerId": "a0d93c40-341f-4bed-b0f9-f01cfd3ba5bc"
+        },
+        {
+            "type": "Ext.data.field.String",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "data"
+            },
+            "name": "MyString71",
+            "designerId": "7527037b-0238-4d07-8848-2a265bd226ed"
+        },
+        {
+            "type": "Ext.data.field.String",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "bank_payer"
+            },
+            "name": "MyString72",
+            "designerId": "092412d1-c57f-44d7-913b-5db9dabece08"
+        },
+        {
+            "type": "Ext.data.field.String",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "mfo_payer"
+            },
+            "name": "MyString73",
+            "designerId": "4761de03-ba88-4e02-98cc-82b51bdc7883"
+        },
+        {
+            "type": "Ext.data.field.String",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "okpo_payer"
+            },
+            "name": "MyString74",
+            "designerId": "9c8fc077-9424-4c0d-8ded-424e8842f61f"
+        },
+        {
+            "type": "Ext.data.field.String",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "acc_payer"
+            },
+            "name": "MyString75",
+            "designerId": "481b089c-5c7d-47e8-b697-8af8c2ba0c1f"
+        },
+        {
+            "type": "Ext.data.field.String",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "bank_receiv"
+            },
+            "name": "MyString76",
+            "designerId": "bf774aaa-d4ae-4e09-88f2-ed310ff7bf8b"
+        },
+        {
+            "type": "Ext.data.field.String",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "mfo_receiv"
+            },
+            "name": "MyString77",
+            "designerId": "eda95b6c-a9cb-40c5-84b9-981a72880e3b"
+        },
+        {
+            "type": "Ext.data.field.String",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "okpo_receiv"
+            },
+            "name": "MyString78",
+            "designerId": "bab6462d-c5a4-46d1-9398-a36a58f5fd01"
+        },
+        {
+            "type": "Ext.data.field.String",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "acc_receiv"
+            },
+            "name": "MyString79",
+            "designerId": "6e9b35ac-2224-4571-bf4b-dc3491e02cd0"
+        },
+        {
+            "type": "Ext.data.field.String",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "summa"
+            },
+            "name": "MyString80",
+            "designerId": "213cb989-0ba3-4560-a6b5-0a3c00bcbf63"
+        },
+        {
+            "type": "Ext.data.field.String",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "detali"
+            },
+            "name": "MyString81",
+            "designerId": "5c7effa7-3176-4b83-83a8-dcd1b2c49666"
+        },
+        {
+            "type": "Ext.data.field.String",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "symbol_pay"
+            },
+            "name": "MyString82",
+            "designerId": "5097055c-420b-4c95-98fc-4cf186da7539"
+        },
+        {
+            "type": "Ext.data.field.String",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "client"
+            },
+            "name": "MyString83",
+            "designerId": "969dd51b-b169-4a3f-bdd1-e6f5803fd841"
+        }
+    ]
+}

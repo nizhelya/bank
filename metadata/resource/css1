@@ -1,0 +1,13 @@
+{
+    "type": "cssresource",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "css1",
+        "url": "resources/css/schet.css"
+    },
+    "designerId": "70455735-2510-4f89-a6c7-042613a3539d"
+}

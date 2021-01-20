@@ -1,0 +1,424 @@
+{
+    "type": "Ext.app.Controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "crLeftMenu",
+        "designer|userClassName": "CrLeftMenu",
+        "views": [
+            "VpKommuna",
+            "menu.TabPnCenter"
+        ]
+    },
+    "designerId": "f77e4e76-b9ea-4938-b6f5-9c8f4e782141",
+    "cn": [
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "autoCreate": null,
+                "forceCreate": null,
+                "ref": "CbRaion",
+                "selector": "#cbRaion",
+                "xtype": null
+            },
+            "name": "CbRaion",
+            "designerId": "6d305aaf-1b65-4b91-b02a-cb7d1caf3829"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#cbRaion",
+                "designer|targetType": "Ext.form.field.ComboBox",
+                "fn": "onCbRaionSelect",
+                "implHandler": [
+                    "//in use",
+                    "var me=this;",
+                    "/*",
+                    "COMPONENT",
+                    "*/",
+                    "var cbStreet = me.getCbStreet();",
+                    "var viewHouses = me.getListHousesData();",
+                    "/*",
+                    "STORE",
+                    "*/",
+                    "var stUser = Ext.data.StoreManager.get(\"StUser\");",
+                    "var stHouses = Ext.data.StoreManager.get(\"StHouses\");",
+                    "/*",
+                    "LOGIN & PASSWORD",
+                    "*/",
+                    "var values =stUser.getAt(0);",
+                    "var login = values.get('login');",
+                    "var password = values.get('password');",
+                    "/*",
+                    "LOGIKA",
+                    "*/",
+                    "",
+                    "cbStreet.clearValue();",
+                    "if (record) {",
+                    "    stHouses.load({",
+                    "        params: {",
+                    "            what:'HousesFromRaion',",
+                    "            what_id: record.get('raion_id'),",
+                    "            login:login,",
+                    "            password:password",
+                    "        },",
+                    "        scope: this",
+                    "    });",
+                    "}",
+                    ""
+                ],
+                "name": "select",
+                "scope": "me"
+            },
+            "name": "onCbRaionSelect",
+            "designerId": "6eb0981b-29a4-4f84-94bb-d0c351b0108f"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "ListHouses",
+                "selector": "#listHouses"
+            },
+            "name": "ListHouses",
+            "designerId": "1d69aea2-bf0d-4084-acea-d41abf5cbf61"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "ListHousesData",
+                "selector": "listHouses dataview"
+            },
+            "name": "ListHousesData",
+            "designerId": "61ee24b9-d690-45a3-8861-2f95bb91ed26"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#cbStreet",
+                "designer|targetType": "Ext.form.field.ComboBox",
+                "fn": "onCbStreetSelect",
+                "implHandler": [
+                    "//in use",
+                    "var me=this;",
+                    "/*",
+                    "COMPONENT",
+                    "*/",
+                    "var cbRaion = me.getCbRaion();",
+                    "var viewHouses = me.getListHousesData();",
+                    "/*",
+                    "STORE",
+                    "*/",
+                    "var stUser = Ext.data.StoreManager.get(\"StUser\");",
+                    "var stHouses = Ext.data.StoreManager.get(\"StHouses\");",
+                    "/*",
+                    "LOGIN & PASSWORD",
+                    "*/",
+                    "var values =stUser.getAt(0);",
+                    "var login = values.get('login');",
+                    "var password = values.get('password');",
+                    "/*",
+                    "LOGIKA",
+                    "*/",
+                    "cbRaion.clearValue();",
+                    "if (record) {",
+                    "    stHouses.load({",
+                    "        params: {",
+                    "            what:'HousesFromStreet',",
+                    "            what_id: record.get('street_id'),",
+                    "            privat: record.get('privat'),",
+                    "            login:login,",
+                    "            password:password",
+                    "        },",
+                    "        scope: this",
+                    "    });",
+                    "}"
+                ],
+                "name": "select",
+                "scope": "me"
+            },
+            "name": "onCbStreetSelect",
+            "designerId": "586acba8-9143-47af-adcb-7d5b7e2c577a"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "adr"
+                ],
+                "fn": "LoadFlatData",
+                "implHandler": [
+                    "var me = this;",
+                    "var crKassa = this.application.getController('CrKassa');",
+                    "var tabPnCenter = me.getTabPnCenter();",
+                    "var activeTab = tabPnCenter.getActiveTab();",
+                    "var nameactiveTab = activeTab.getXType();",
+                    "var index = tabPnCenter.items.indexOf(activeTab);",
+                    "var stUser = Ext.data.StoreManager.get(\"StUser\");",
+                    "",
+                    "var values =stUser.getAt(0);",
+                    "var login = values.get('login');",
+                    "var tbank = values.get('tbank');",
+                    "var address_id = values.get('address_id');",
+                    "var address = values.get('address');",
+                    "var house_id = values.get('house_id');",
+                    "var user_id = values.get('user_id');",
+                    "if(adr){",
+                    "    tabPnCenter.child('#tabKassa').tab.show();",
+                    "    tabPnCenter.child('#tabReestr').tab.show();",
+                    "    tabPnCenter.child('#tabLogin').tab.hide();",
+                    "    if (nameactiveTab==='tabkassa'){",
+                    "        crKassa.onTabKassaActivate();",
+                    "    }",
+                    "    tabPnCenter.setActiveTab('tabKassa');",
+                    "",
+                    "",
+                    "",
+                    "}"
+                ]
+            },
+            "name": "LoadFlatData",
+            "designerId": "bb17c4fd-bb19-4625-a7b0-c0ad3f364627"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#listHousesView",
+                "designer|targetType": "Ext.view.View",
+                "fn": "onListHousesViewItemClick",
+                "implHandler": [
+                    "//in use",
+                    "var me = this;",
+                    "var showAddress = Ext.getCmp('showAddress');",
+                    "var showHouse = Ext.getCmp('showHouse');",
+                    "",
+                    "// STORE",
+                    "",
+                    "var stUser = Ext.data.StoreManager.get(\"StUser\");",
+                    "",
+                    "//LOGIN & PASSWORD",
+                    "",
+                    "var values =stUser.getAt(0);",
+                    "var login = values.get('login');",
+                    "var password = values.get('password');",
+                    "",
+                    "//LOGIKA",
+                    "",
+                    "if (login) {",
+                    "    var selected = record.data;",
+                    "    if (selected){",
+                    "        values.set({'house_id':selected.house_id,",
+                    "                    'house':selected.house,",
+                    "                    'address_id':selected.address_id,",
+                    "                    'address':selected.address,",
+                    "                    'raion_id':selected.raion_id,",
+                    "                    'raion':selected.raion,",
+                    "                    'appartment':selected.appartment,",
+                    "                    'street_id':selected.street_id,",
+                    "                    'vibor':\"app\"",
+                    "                   });",
+                    "",
+                    "        if(selected.address_id===0){",
+                    "            Ext.MessageBox.prompt(selected.house,",
+                    "                                  ' Введите номер квартиры:',",
+                    "                                  function(btn,text){",
+                    "                                      if (btn == 'ok') {",
+                    "                                          var sendValue = {'what': 'CheckFlat',",
+                    "                                                           'what_id': selected.house_id,",
+                    "                                                           'appartment':text,",
+                    "                                                           login:login ,",
+                    "                                                           password:password};",
+                    "                                          //   console.log(sendValue);",
+                    "",
+                    "                                          QueryAddress.getResults(sendValue,function(results){",
+                    "                                              if (results.success){",
+                    "                                                  if (results.data[0]) {",
+                    "                                                      values.set({'raion_id':results.data[0].raion_id,",
+                    "                                                                  'raion':results.data[0].raion,",
+                    "                                                                  'street_id':results.data[0].street_id,",
+                    "                                                                  'house_id':results.data[0].house_id,",
+                    "                                                                  'house':results.data[0].house,",
+                    "                                                                  'address_id':results.data[0].address_id,",
+                    "                                                                  'address':results.data[0].address,",
+                    "                                                                  'appartment':results.data[0].appartment,",
+                    "                                                                  'vibor':\"app\"",
+                    "                                                                 });",
+                    "                                                              stUser.sync();",
+                    "                    //console.log(values);",
+                    "",
+                    "                                                      showAddress.setText(results.data[0].address).show();",
+                    "                                                      me.LoadFlatData(true);",
+                    "                                                  } else {",
+                    "                                                      Ext.MessageBox.show({title: 'Выбор номера квартиры',",
+                    "                                                                           msg: 'Квартира не найдена',",
+                    "                                                                           buttons: Ext.MessageBox.OK,",
+                    "                                                                           icon: Ext.MessageBox.ERROR",
+                    "                                                                          });",
+                    "                                                  }",
+                    "                                              }",
+                    "                                          }",
+                    "                                                                 );",
+                    "                                      }",
+                    "                                  });",
+                    "        }else{",
+                    "",
+                    "            me.LoadFlatData(true);",
+                    "        }",
+                    "",
+                    "    }",
+                    "}"
+                ],
+                "name": "itemclick",
+                "scope": "me"
+            },
+            "name": "onListHousesViewItemClick",
+            "designerId": "4e7b0e7d-47e6-44ab-bbee-17b3e1d84d75"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "CbStreet",
+                "selector": "#cbStreet"
+            },
+            "name": "CbStreet",
+            "designerId": "e96dec12-8346-4dfc-9d63-c4e5e3296a40"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "ShowAddress",
+                "selector": "#showAddress"
+            },
+            "name": "ShowAddress",
+            "designerId": "fd1817ce-6fab-44b6-b77e-befaaa2eb701"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "VpKommuna",
+                "selector": "#vpKommuna",
+                "xtype": "vpkommuna"
+            },
+            "name": "VpKommuna",
+            "designerId": "1fc8d440-92f5-4c4e-a1b6-c9ff8db3a70b"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "TabPnCenter",
+                "selector": "#tabPnCenter",
+                "xtype": "tabpncenter"
+            },
+            "name": "TabPnCenter",
+            "designerId": "588cc0eb-d8de-4ec6-aa51-62ba7a959eb4"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#tabMenuLifeFond",
+                "designer|targetType": "Ext.panel.Panel",
+                "fn": "onTabMenuLifeFondActivate",
+                "implHandler": [
+                    "var me=this;",
+                    "var tabPnCenter = me.getTabPnCenter();",
+                    "tabPnCenter.child('#tabKassa').tab.hide();",
+                    "tabPnCenter.child('#tabLogin').tab.hide();",
+                    "tabPnCenter.setActiveTab('tabLogin');"
+                ],
+                "name": "activate",
+                "scope": "me"
+            },
+            "name": "onTabMenuLifeFondActivate",
+            "designerId": "2acde47e-9021-463a-bc41-3cae3c54ffee"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#tabMenuSprav",
+                "designer|targetType": "Ext.panel.Panel",
+                "fn": "onPanelActivate",
+                "implHandler": [
+                    "//in use",
+                    "var me=this;",
+                    "//TAB",
+                    "var tabPnCenter = me.getTabPnCenter();",
+                    "//LOGIKA",
+                    "",
+                    "tabPnCenter.child('#tabLogin').tab.hide(); ",
+                    "tabPnCenter.setActiveTab('tabLogin');"
+                ],
+                "name": "activate",
+                "scope": "me"
+            },
+            "name": "onPanelActivate",
+            "designerId": "ca844c34-108f-4465-b701-ffb27fe0d5b4"
+        }
+    ]
+}

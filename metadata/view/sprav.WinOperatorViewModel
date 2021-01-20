@@ -1,0 +1,13 @@
+{
+    "type": "Ext.app.ViewModel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "winOperator",
+        "designer|userClassName": "sprav.WinOperatorViewModel"
+    },
+    "designerId": "d3a7065f-10d8-4d30-a2d6-be45f5328c9e"
+}

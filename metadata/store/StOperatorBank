@@ -1,0 +1,70 @@
+{
+    "type": "directstore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "autoLoad": null,
+        "autoSync": null,
+        "designer|userAlias": "stOperatorBank",
+        "designer|userClassName": "StOperatorBank",
+        "groupDir": null,
+        "groupField": null,
+        "model": "MdUser",
+        "storeId": "stOperatorBank"
+    },
+    "designerId": "ba17945b-6253-4d6a-b1f8-c58933c8bd7c",
+    "cn": [
+        {
+            "type": "Ext.data.proxy.Direct",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "api": [
+                    "{",
+                    "    create: 'QuerySprav.createRecord',",
+                    "    read: 'QuerySprav.getResults',",
+                    "    update: 'QuerySprav.updateRecords',",
+                    "    destroy: 'QuerySprav.destroyRecord'",
+                    "}"
+                ],
+                "directFn": null,
+                "extraParams": [
+                    "{what:'getLgota'}"
+                ]
+            },
+            "name": "MyDirectProxy3",
+            "designerId": "8bde6ace-9c24-4c0c-b21b-694b4e863c0f",
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Json",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "rootProperty": "data"
+                    },
+                    "name": "MyJsonReader3",
+                    "designerId": "89b09540-bf03-4627-85eb-d8be8306040c"
+                },
+                {
+                    "type": "Ext.data.writer.Json",
+                    "reference": {
+                        "name": "writer",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "name": "MyJsonWriter",
+                    "designerId": "875e1474-612a-4d1f-8371-60507696027d"
+                }
+            ]
+        }
+    ]
+}

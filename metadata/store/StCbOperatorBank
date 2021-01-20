@@ -1,0 +1,53 @@
+{
+    "type": "directstore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "autoLoad": null,
+        "autoSync": null,
+        "designer|userAlias": "stCbOperatorBank",
+        "designer|userClassName": "StCbOperatorBank",
+        "groupDir": null,
+        "groupField": null,
+        "model": "MdUser",
+        "storeId": "stCbOperatorBank"
+    },
+    "designerId": "83eab6b6-cb11-454d-9bf5-bd8c8790484c",
+    "cn": [
+        {
+            "type": "Ext.data.proxy.Direct",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "api": null,
+                "directFn": "QueryLoad.getResults",
+                "extraParams": [
+                    "{what:'OperatorBanka'}"
+                ]
+            },
+            "name": "MyDirectProxy12",
+            "designerId": "5b1e3172-7602-4e1a-b25e-f5365679613c",
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Json",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "rootProperty": "data"
+                    },
+                    "name": "MyJsonReader13",
+                    "designerId": "7d08b872-303b-471b-b883-90d00f2256c3"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,13 @@
+{
+    "type": "Ext.app.ViewModel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "tabClientBanka",
+        "designer|userClassName": "sprav.TabClientbankaViewModel"
+    },
+    "designerId": "84e0ca57-663f-4ff9-8366-64fbc42754e7"
+}

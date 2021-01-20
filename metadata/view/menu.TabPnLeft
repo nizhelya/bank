@@ -1,0 +1,412 @@
+{
+    "type": "Ext.tab.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "activeTab": 0,
+        "animCollapse": true,
+        "bodyPadding": null,
+        "border": false,
+        "collapseDirection": "left",
+        "designer|userAlias": "tabpnleft",
+        "designer|userClassName": "menu.TabPnLeft",
+        "headerPosition": "bottom",
+        "height": null,
+        "id": "tabPnLeft",
+        "maxWidth": null,
+        "minWidth": null,
+        "padding": "",
+        "plain": true,
+        "removePanelHeader": false,
+        "style": "background-color: #DCDCDC;",
+        "width": null
+    },
+    "configAlternates": {
+        "border": "boolean",
+        "scrollable": "boolean",
+        "style": "string"
+    },
+    "designerId": "64623cb5-9c54-42da-88bd-35c71b6c6137",
+    "viewControllerInstanceId": "45536343-c14f-47e3-9016-8cf6284814a5",
+    "viewModelInstanceId": "a8931065-27ca-4676-a43b-c8509bd277f5",
+    "cn": [
+        {
+            "type": "Ext.panel.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "bodyStyle": null,
+                "border": false,
+                "container|align": "stretch",
+                "frameHeader": false,
+                "header": false,
+                "id": "tabMenuLifeFond",
+                "itemId": null,
+                "layout": "vbox",
+                "manageHeight": false,
+                "scrollable": true,
+                "title": "ЖФ",
+                "width": null
+            },
+            "name": "MyPanel1",
+            "configAlternates": {
+                "scrollable": "boolean"
+            },
+            "designerId": "d0f4e1f1-1635-4ff7-9eab-89d50ee21f56",
+            "cn": [
+                {
+                    "type": "Ext.tab.Tab",
+                    "reference": {
+                        "name": "tabConfig",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "closable": false,
+                        "frame": false,
+                        "iconCls": "icon-home",
+                        "style": "background-color: #C2D9C9;border:0px;"
+                    },
+                    "name": "TabConfig7",
+                    "configAlternates": {
+                        "style": "string",
+                        "scrollable": "boolean"
+                    },
+                    "designerId": "bdf306e8-e7f2-4e95-91c7-2da5de13c2ea"
+                },
+                {
+                    "type": "Ext.form.FieldSet",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "border": "0px",
+                        "height": 115,
+                        "layout|flex": null,
+                        "layout|margins": null,
+                        "padding": "10 5 10 5",
+                        "style": "background-color: #DCDCDC;",
+                        "title": ""
+                    },
+                    "name": "MyFieldSet3",
+                    "configAlternates": {
+                        "style": "string",
+                        "scrollable": "boolean"
+                    },
+                    "designerId": "9095926e-c8fd-4c24-8f9d-ffcae17d0ad3",
+                    "cn": [
+                        {
+                            "type": "Ext.form.Label",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "height": 22,
+                                "id": "showAddress",
+                                "layout|anchor": "100%",
+                                "margin": "5 5 10 5 ",
+                                "minWidth": null,
+                                "padding": "",
+                                "style": "color: #D15706; text-shadow: -1px -1px white, 1px 1px #333;font-size:14pt;text-align:center;",
+                                "text": "Адрес",
+                                "width": 56
+                            },
+                            "name": "MyLabel14",
+                            "configAlternates": {
+                                "style": "string",
+                                "scrollable": "boolean"
+                            },
+                            "designerId": "f9b642b3-ab0d-4ab4-8890-d851e6278cc3"
+                        },
+                        {
+                            "type": "Ext.form.field.ComboBox",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "displayField": "raion",
+                                "emptyText": "Выбрать район",
+                                "fieldLabel": "",
+                                "id": "cbRaion",
+                                "itemId": "cbRaion",
+                                "layout|anchor": "100%",
+                                "margin": "10 5 5 5",
+                                "maxHeight": null,
+                                "maxWidth": null,
+                                "minHeight": null,
+                                "minWidth": null,
+                                "padding": null,
+                                "queryMode": "local",
+                                "store": "StRaion",
+                                "style": null,
+                                "valueField": "raion_id",
+                                "width": null
+                            },
+                            "name": "MyComboBox5",
+                            "configAlternates": {
+                                "scrollable": "boolean"
+                            },
+                            "designerId": "d269a084-07b9-4351-99bf-43be2b5df52a"
+                        },
+                        {
+                            "type": "Ext.form.field.ComboBox",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "displayField": "street",
+                                "emptyText": "Выбрать улицу",
+                                "fieldLabel": "",
+                                "id": "cbStreet",
+                                "itemId": "cbStreet",
+                                "layout|anchor": "100%",
+                                "margin": "10 5 5 5",
+                                "maxWidth": null,
+                                "minWidth": null,
+                                "padding": null,
+                                "queryMode": "local",
+                                "store": "StStreet",
+                                "valueField": "street_id",
+                                "width": null
+                            },
+                            "name": "MyComboBox6",
+                            "configAlternates": {
+                                "scrollable": "boolean"
+                            },
+                            "designerId": "57a35ecd-b93a-495a-bc6d-8bf707fbf899"
+                        },
+                        {
+                            "type": "Ext.form.field.Hidden",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "Label",
+                                "hidden": null,
+                                "id": "indexTabLifeFond",
+                                "name": "indexTabLifeFond",
+                                "value": [
+                                    "0",
+                                    ""
+                                ]
+                            },
+                            "name": "MyHiddenField4",
+                            "configAlternates": {
+                                "scrollable": "boolean"
+                            },
+                            "designerId": "b1fe377c-e050-4f47-8324-2bfbdd640141"
+                        },
+                        {
+                            "type": "Ext.form.field.Hidden",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "Label",
+                                "id": "indexTabOrg",
+                                "name": "indexTabOrg",
+                                "value": [
+                                    "4"
+                                ]
+                            },
+                            "name": "MyHiddenField5",
+                            "configAlternates": {
+                                "scrollable": "boolean"
+                            },
+                            "designerId": "a89cfdae-d310-44ee-b78d-5278a499da8e"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.panel.Panel",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "bodyBorder": false,
+                        "bodyPadding": null,
+                        "bodyStyle": null,
+                        "border": null,
+                        "collapseFirst": false,
+                        "frameHeader": false,
+                        "header": false,
+                        "headerPosition": null,
+                        "height": null,
+                        "id": "listHouses",
+                        "itemId": null,
+                        "layout": "fit",
+                        "layout|flex": 1,
+                        "margin": null,
+                        "maxWidth": null,
+                        "padding": null,
+                        "style": "background-color: #DCDCDC;",
+                        "title": "",
+                        "width": null
+                    },
+                    "name": "MyPanel2",
+                    "configAlternates": {
+                        "style": "string",
+                        "bodyStyle": "string",
+                        "scrollable": "boolean"
+                    },
+                    "designerId": "81d7e842-c8ac-4e85-bcdd-f7320d2132f0",
+                    "cn": [
+                        {
+                            "type": "Ext.view.View",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "border": null,
+                                "cls": [
+                                    "feed-list"
+                                ],
+                                "emptyText": "",
+                                "id": "listHousesView",
+                                "itemSelector": ".feed-list-item",
+                                "margin": null,
+                                "overItemCls": "feed-list-item-hover",
+                                "scrollable": true,
+                                "store": "StHouses",
+                                "style": "background-color: #DCDCDC;"
+                            },
+                            "name": "MyView",
+                            "configAlternates": {
+                                "style": "string",
+                                "scrollable": "boolean"
+                            },
+                            "designerId": "62fee1e7-be73-4335-a5b4-99b31d88ff66",
+                            "cn": [
+                                {
+                                    "type": "Ext.XTemplate",
+                                    "reference": {
+                                        "name": "tpl",
+                                        "type": "object"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "designer|displayName": "tpl",
+                                        "implHandler": [
+                                            "<tpl for=\".\"><div class=\"feed-list-item\">{item}</div></tpl>"
+                                        ]
+                                    },
+                                    "name": "tpl",
+                                    "designerId": "28be9c31-fc53-4320-92cf-9022ed66ced8"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Ext.panel.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "header": false,
+                "id": "tabMenuSprav",
+                "itemId": null,
+                "layout": "fit",
+                "scrollable": true,
+                "title": "Отчеты"
+            },
+            "name": "MyPanel3",
+            "configAlternates": {
+                "scrollable": "boolean"
+            },
+            "designerId": "e10788bb-3cc1-4951-a510-6ce5824cadf0",
+            "cn": [
+                {
+                    "type": "Ext.tab.Tab",
+                    "reference": {
+                        "name": "tabConfig",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "iconCls": "icon-sprav"
+                    },
+                    "name": "TabConfig8",
+                    "configAlternates": {
+                        "scrollable": "boolean"
+                    },
+                    "designerId": "13968f08-74b9-43e7-8429-c5ea1d953582"
+                },
+                {
+                    "type": "Ext.tree.Panel",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "collapsed": null,
+                        "collapsible": null,
+                        "forceFit": true,
+                        "id": "treeMenuSprav",
+                        "itemId": null,
+                        "root": null,
+                        "rootVisible": false,
+                        "store": "StTreeSprav",
+                        "style": "",
+                        "title": ""
+                    },
+                    "name": "MyTreePanel",
+                    "configAlternates": {
+                        "style": "string",
+                        "scrollable": "boolean"
+                    },
+                    "designerId": "36f88f35-6301-44d9-9221-09592ca8c1a3",
+                    "cn": [
+                        {
+                            "type": "Ext.tree.View",
+                            "reference": {
+                                "name": "viewConfig",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "id": "treeMenuSpravView",
+                                "itemId": null,
+                                "loadingText": "Загрузка...",
+                                "style": "background-color: #C2D9C9;"
+                            },
+                            "name": "MyTreeView",
+                            "configAlternates": {
+                                "style": "string",
+                                "scrollable": "boolean"
+                            },
+                            "designerId": "70f1e811-d5de-43b2-885d-6e1b1f5fe1e8"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

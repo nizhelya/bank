@@ -1,0 +1,53 @@
+{
+    "type": "directstore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "autoLoad": null,
+        "autoSync": null,
+        "designer|userAlias": "stCbOtdelenieBank",
+        "designer|userClassName": "StCbOtdelenieBank",
+        "groupDir": null,
+        "groupField": null,
+        "model": "MdBank",
+        "storeId": "stCbOtdelenieBank"
+    },
+    "designerId": "ae103c3e-be76-436f-8131-c299f8f22b03",
+    "cn": [
+        {
+            "type": "Ext.data.proxy.Direct",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "api": null,
+                "directFn": "QueryLoad.getResults",
+                "extraParams": [
+                    "{what:'OtdelenieBanka'}"
+                ]
+            },
+            "name": "MyDirectProxy8",
+            "designerId": "d72f2b77-ca37-4af8-9730-36ebc8d53a6e",
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Json",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "rootProperty": "data"
+                    },
+                    "name": "MyJsonReader8",
+                    "designerId": "ed601fc1-00d6-4571-9c0a-60a08c8a0bbb"
+                }
+            ]
+        }
+    ]
+}

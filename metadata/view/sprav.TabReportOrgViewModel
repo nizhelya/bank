@@ -1,0 +1,13 @@
+{
+    "type": "Ext.app.ViewModel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "tabreportorg",
+        "designer|userClassName": "sprav.TabReportOrgViewModel"
+    },
+    "designerId": "358f3323-47b2-4339-9bc4-c613d21e009d"
+}

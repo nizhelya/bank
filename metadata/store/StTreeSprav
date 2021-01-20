@@ -1,0 +1,61 @@
+{
+    "type": "Ext.data.TreeStore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "stTreeSprav",
+        "designer|userClassName": "StTreeSprav",
+        "model": "MdTreeSprav",
+        "root": [
+            "{",
+            "expanded: true,",
+            "children: [",
+            "{",
+            "id: 'YisKassa',",
+            "text: 'Реестры платежей',",
+            "expanded: true,",
+            "children: [",
+            "{id: 'KassirReestrDay', leaf: true, text: 'Реестр по адресам'},",
+            "{id: 'KassaReestr', leaf: true, text: 'Реестр по кассе'},",
+            "{id: 'KassaReestrOsmd', leaf: true, text: 'Реестр кассы по ОСМД'},",
+            "{id: 'OtdelReestr', leaf: true, text: 'Свод по отделениям'},",
+            "{id: 'BankReestr', leaf: true, text: 'Реестр по банку'},",
+            "{id: 'BankReestrOsmd', leaf: true, text: 'Реестр банка ОСМД'},",
+            "{id: 'BankControl', leaf: true, text: 'Контроль платежей'}",
+            "",
+            "]",
+            "}",
+            "]",
+            "}"
+        ],
+        "storeId": "stTreeSprav"
+    },
+    "designerId": "23dba63a-9c52-487d-9ff2-b2455541c6d8",
+    "cn": [
+        {
+            "type": "Ext.data.proxy.Ajax",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "name": "MyAjaxProxy3",
+            "designerId": "578d66fe-2590-4dce-a2d0-4c5f87980be9",
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Json",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "name": "MyJsonReader9",
+                    "designerId": "86ca7f27-f1e5-45cc-8c68-40f878239f69"
+                }
+            ]
+        }
+    ]
+}

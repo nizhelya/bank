@@ -1,0 +1,54 @@
+{
+    "type": "arraystore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "data": [
+            "[{\"role\":\"Кассир\"},{\"role\":\"Админ\"}]"
+        ],
+        "designer|userAlias": "stRole",
+        "designer|userClassName": "StRole",
+        "storeId": "stRole"
+    },
+    "designerId": "19a94d2d-2192-44eb-8e3d-c8d5db2f838b",
+    "cn": [
+        {
+            "type": "Ext.data.proxy.Ajax",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "name": "MyAjaxProxy",
+            "designerId": "9048439f-3314-4391-9471-f291866cfe38",
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Array",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "name": "MyArrayReader",
+                    "designerId": "4a88f53a-a876-48ce-9edb-0a9c57beaccb"
+                }
+            ]
+        },
+        {
+            "type": "Ext.data.field.String",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "role"
+            },
+            "name": "MyString54",
+            "designerId": "281e19d8-7b3a-45a9-81d5-5c695e7ef81f"
+        }
+    ]
+}

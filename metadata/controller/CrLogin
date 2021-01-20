@@ -1,0 +1,324 @@
+{
+    "type": "Ext.app.Controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "crLogin",
+        "designer|userClassName": "CrLogin",
+        "models": [
+            "MdLogin",
+            "MdUser",
+            "MdStreet",
+            "MdRaion",
+            "MdHouses"
+        ],
+        "stores": [
+            "StLogin",
+            "StUser",
+            "StStreet",
+            "StRaion",
+            "StHouses",
+            "StCbOtdelenieBank",
+            "StCbOperatorBank"
+        ],
+        "views": [
+            "VpKommuna",
+            "user.WinLogin",
+            "menu.TabPnCenter"
+        ]
+    },
+    "designerId": "68559556-6f50-4aa1-8210-555cafb4cc1b",
+    "cn": [
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#btninput",
+                "designer|targetType": "Ext.button.Button",
+                "fn": "onBtninputClick",
+                "implHandler": [
+                    "// in use",
+                    "var me = this;",
+                    "//WIN",
+                    "var win = Ext.getCmp('winLogin');",
+                    "",
+                    "//var WinLogin = me.getWinLogin();",
+                    "//STORE",
+                    "var stUser = me.getStUserStore();",
+                    "var storeRaion = me.getStRaionStore();",
+                    "var storeStreet = me.getStStreetStore();",
+                    "// ALL STORES",
+                    "",
+                    "var storeLocal = Ext.data.StoreManager.get(\"StLoginLocal\");",
+                    "",
+                    "//FORM",
+                    "var chekLogin = Ext.getCmp('chekLogin');",
+                    "",
+                    "var form = me.getFmLogin();",
+                    "var values = form.getValues();",
+                    "var attempt = 0;",
+                    "//LOGIKA",
+                    "",
+                    "attempt += parseInt(values.attempt,10)+1 ;",
+                    "QueryUserLogin.login(values,function(results){",
+                    "    if (results.success===true){ ",
+                    "        //console.log(results);",
+                    "        stUser.add({'login':results.login,'user_id':results.user_id,",
+                    "        'password':results.password,'role':results.role,'otdel_id':values.otdel_id,'tbank':results.bank});",
+                    "        stUser.sync(); ",
+                    "",
+                    "        if((values.remember)){ ",
+                    "            // проверяем нужно ли сохранять его в локальном хранилище, если да(remember=1)   ",
+                    "            // получаем обьект локального хранилища StUserLocal и добавляем в него пользователя  ",
+                    "            // после чего показываем окно завершения регистрации ",
+                    "            storeLocal.load();",
+                    "            storeLocal.removeAll();",
+                    "            storeLocal.sync();",
+                    "            storeLocal.add({tbank:results.bank,otdel_id:values.otdel_id,user_id:results.user_id,login:results.login,password:results.password,role:results.role,remember:1});",
+                    "            storeLocal.sync(); ",
+                    "",
+                    "        } ",
+                    "",
+                    "        // ЛЕВОЕ МЕНЮ (ЖФ) ",
+                    "        storeRaion.load({",
+                    "            params: {",
+                    "                what:'raion'",
+                    "            },",
+                    "            scope: this",
+                    "        });",
+                    "        storeStreet.load({",
+                    "            params: {",
+                    "                what:'street'               ",
+                    "",
+                    "            },",
+                    "            scope: this",
+                    "        });",
+                    "",
+                    "        win.close(); ",
+                    "",
+                    "    } else {",
+                    "        if (attempt>5){",
+                    "",
+                    "            Ext.MessageBox.show({",
+                    "                title: 'Авторизация',",
+                    "                msg: '<center>Вы исчерпали количество попыток !!! <br> Логин или пароль неверный, <br> До свидания !!!</center>',",
+                    "                buttons: null,",
+                    "                icon: Ext.MessageBox.ERROR",
+                    "            });",
+                    "            setTimeout(function(){",
+                    "                location.href = \"http://ya.ru\";",
+                    "",
+                    "            }, 5000);",
+                    "        }",
+                    "        form.getForm().findField('attempt').setValue(attempt);",
+                    "        chekLogin.setText('Логин или пароль неверный. Попытка № '+attempt).show();       ",
+                    "    }",
+                    "}); ",
+                    ""
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "name": "onBtninputClick",
+            "designerId": "8a13953c-8a81-4dd1-bc2f-34b9d7c9ff93"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "autoCreate": true,
+                "forceCreate": true,
+                "ref": "WinLogin",
+                "selector": "#winLogin",
+                "xtype": "winlogin"
+            },
+            "name": "WinLogin",
+            "designerId": "a7f244cf-2631-4375-b35f-d27aaeca59da"
+        },
+        {
+            "type": "fixedfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onLaunch",
+                "implHandler": [
+                    "//in use",
+                    "var me=this;",
+                    "//TAB",
+                    "//console.log('tab');",
+                    "var stCbOperatorBank =  me.getStCbOperatorBankStore();",
+                    "",
+                    "var stCbOtdelenieBank = me.getStCbOtdelenieBankStore();",
+                    "",
+                    "stCbOperatorBank.load({",
+                    "    params: {",
+                    "        what:'OperatorBanka'",
+                    "    }",
+                    "});",
+                    "stCbOtdelenieBank.load({",
+                    "    params: {",
+                    "        what:'OtdelenieBanka'",
+                    "    }",
+                    "});",
+                    "",
+                    "var tabPnCenter = me.getTabPnCenter();",
+                    "//console.log(tabPnCenter);",
+                    "",
+                    "",
+                    "/*",
+                    "COMPONENT",
+                    "*/",
+                    "//КВАРТИРЫ",
+                    "tabPnCenter.child('#tabKassa').tab.hide();",
+                    "",
+                    "",
+                    "//СПРАВОЧНИК",
+                    "tabPnCenter.child('#tabLogin').tab.hide();",
+                    "",
+                    "var WinLogin = me.getWinLogin();",
+                    "WinLogin.show();",
+                    "",
+                    "",
+                    "",
+                    "var fmLogin =  me.getFmLogin().getForm();",
+                    "var info_remember = Ext.getCmp('info_remember');",
+                    "var values = fmLogin.getValues();",
+                    "//console.log(values);",
+                    "",
+                    "//получаем обьект локального хранилища",
+                    "var storeLocal = Ext.data.StoreManager.get(\"StLoginLocal\");",
+                    "//получаем обьект хранилища в котором будут находиться  данные о пользователе",
+                    "// загружаем сохраненные данные на машине пользователя в локальное хранилище",
+                    "storeLocal.load();",
+                    "",
+                    "if(storeLocal.data.length){",
+                    "    var otdel_id = storeLocal.last().get('otdel_id');",
+                    "    var login = storeLocal.last().get('login');",
+                    "    var user_id = storeLocal.last().get('user_id');",
+                    "    var passwd = storeLocal.last().get('password');",
+                    "    //   fmLogin.findField('kod').setValue(kod);",
+                    "    //   fmLogin.findField('login').setValue(user_id);",
+                    "",
+                    "",
+                    "    if(Ext.isEmpty(login)){",
+                    "        //Проверяем локальное хранилище",
+                    "        //Если есть сохраненные данные,то",
+                    "        //находим последнюю запись и получаем ид пользователя и пароль;",
+                    "",
+                    "    } else {",
+                    "        fmLogin.findField('otdel_id').setValue(otdel_id);",
+                    "        fmLogin.findField('user_id').setValue(user_id);",
+                    "        fmLogin.findField('password').setValue(passwd);",
+                    "    }",
+                    "}",
+                    ""
+                ]
+            },
+            "name": "onLaunch",
+            "designerId": "fa526fdb-c421-40bf-9299-ef9064885df2"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "VpKommuna",
+                "selector": "#vpKommuna"
+            },
+            "name": "VpKommuna",
+            "designerId": "4c01ddba-b45c-4441-880f-8a3f3131a29a"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "Vplogin",
+                "selector": "#vpLogin",
+                "xtype": "vplogin"
+            },
+            "name": "Vplogin",
+            "designerId": "172279b2-f89f-4089-8557-ef79f30472c0"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "CbStreet",
+                "selector": "#cbStreet"
+            },
+            "name": "CbStreet",
+            "designerId": "003dc31e-9dc5-4ee0-8123-43e7f0208b50"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "CbRaion",
+                "selector": "#cbRaion"
+            },
+            "name": "CbRaion",
+            "designerId": "6f8cf6b8-453d-448d-b7df-7b3c803a5eac"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "tabPnCenter",
+                "selector": "#tabPnCenter",
+                "xtype": "tabpncenter"
+            },
+            "name": "tabPnCenter",
+            "designerId": "241c785a-fc36-445c-afec-5210bd66912c"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "autoCreate": null,
+                "forceCreate": null,
+                "ref": "FmLogin",
+                "selector": "#fmLogin",
+                "xtype": "fmlogin"
+            },
+            "name": "FmLogin",
+            "designerId": "2a0fb55f-e4d9-43ab-bb35-476f390ea6e0"
+        }
+    ]
+}

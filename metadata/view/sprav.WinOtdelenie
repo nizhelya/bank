@@ -1,0 +1,324 @@
+{
+    "type": "Ext.window.Window",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "winotdelenie",
+        "designer|userClassName": "sprav.WinOtdelenie",
+        "height": 476,
+        "id": "winOtdelenie",
+        "itemId": null,
+        "layout": "fit",
+        "modal": true,
+        "title": "Ввод нового оператора",
+        "width": 562
+    },
+    "configAlternates": {
+        "scrollable": "boolean"
+    },
+    "designerId": "a2c0250b-cae5-4657-a1ff-0557d46652dc",
+    "viewControllerInstanceId": "8dae716b-5980-418a-82e0-8634d45c2045",
+    "viewModelInstanceId": "2caf8828-f911-4030-bc53-91eb53d21cc8",
+    "cn": [
+        {
+            "type": "Ext.form.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "bodyPadding": 10,
+                "designer|snapToGrid": 5,
+                "height": 441,
+                "id": "fmOtdelenie",
+                "itemId": null,
+                "layout": "absolute",
+                "title": ""
+            },
+            "name": "MyForm3",
+            "configAlternates": {
+                "scrollable": "boolean"
+            },
+            "designerId": "5ad05ff2-fa2d-4b87-b33f-f9cdfde7904d",
+            "cn": [
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "formBind": true,
+                        "height": 30,
+                        "icon": "resources/css/images/ico/add.png",
+                        "id": "btAddOtdelenie",
+                        "itemId": null,
+                        "layout|x": 265,
+                        "layout|y": 385,
+                        "text": "Добавить отделение",
+                        "width": 250
+                    },
+                    "name": "MyButton17",
+                    "configAlternates": {
+                        "scrollable": "boolean"
+                    },
+                    "designerId": "8af8b657-fb0a-4dde-88c9-45ac319799b4"
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "height": 30,
+                        "icon": "resources/css/images/ico/delete.png",
+                        "layout|x": 30,
+                        "layout|y": 385,
+                        "text": "Отмена",
+                        "width": 80
+                    },
+                    "name": "MyButton18",
+                    "configAlternates": {
+                        "scrollable": "boolean"
+                    },
+                    "designerId": "f0e81dc3-51f0-4362-84c4-3e603313e2ba",
+                    "cn": [
+                        {
+                            "type": "fixedfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|params": [
+                                    "button",
+                                    "event"
+                                ],
+                                "fn": "handler",
+                                "implHandler": [
+                                    "button.up('#winOtdelenie').close();"
+                                ]
+                            },
+                            "name": "handler",
+                            "designerId": "08f7c776-2fdb-4a86-8b3b-24b1d5a76e0b"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.form.FieldSet",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|displayName": "ЕдИзм",
+                        "designer|snapToGrid": 5,
+                        "height": 330,
+                        "layout": "absolute",
+                        "layout|x": 30,
+                        "layout|y": 25,
+                        "style": "background-color: #DCDCDC;",
+                        "title": "Данные по отделению",
+                        "width": 485
+                    },
+                    "name": "MyFieldSet5",
+                    "configAlternates": {
+                        "style": "string",
+                        "scrollable": "boolean"
+                    },
+                    "designerId": "268fe79e-8a81-48d8-87b4-c1bf591eebe1",
+                    "cn": [
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "allowBlank": false,
+                                "blankText": "Поле обязательное для заполнения",
+                                "fieldLabel": "Отделение",
+                                "formBind": false,
+                                "labelWidth": 80,
+                                "layout|anchor": null,
+                                "layout|x": 5,
+                                "layout|y": 15,
+                                "name": "otdel",
+                                "width": 360
+                            },
+                            "name": "MyTextField15",
+                            "configAlternates": {
+                                "scrollable": "boolean"
+                            },
+                            "designerId": "f1cc2f26-bcef-41c8-aa8e-b748a40806b0"
+                        },
+                        {
+                            "type": "Ext.form.field.Number",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "allowBlank": false,
+                                "allowDecimals": false,
+                                "blankText": "Поле обязательное для заполнения",
+                                "decimalPrecision": 0,
+                                "fieldLabel": "Вечерняя касса (ччмм)",
+                                "formBind": false,
+                                "hideTrigger": true,
+                                "labelWidth": 150,
+                                "layout|anchor": null,
+                                "layout|x": 10,
+                                "layout|y": 230,
+                                "maxLength": 4,
+                                "minLength": 4,
+                                "name": "timeout",
+                                "width": 210
+                            },
+                            "name": "MyNumberField2",
+                            "configAlternates": {
+                                "scrollable": "boolean"
+                            },
+                            "designerId": "6de30ac7-1f85-4df2-aa45-3070c77c4a62"
+                        },
+                        {
+                            "type": "Ext.form.field.Number",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "allowDecimals": false,
+                                "blankText": "Поле обязательное для заполнения",
+                                "decimalPrecision": 0,
+                                "fieldLabel": "ид",
+                                "formBind": false,
+                                "hideTrigger": true,
+                                "labelWidth": 20,
+                                "layout|anchor": null,
+                                "layout|x": 380,
+                                "layout|y": 15,
+                                "maxLength": null,
+                                "minLength": null,
+                                "name": "newid",
+                                "width": 80
+                            },
+                            "name": "MyNumberField3",
+                            "configAlternates": {
+                                "scrollable": "boolean"
+                            },
+                            "designerId": "4a207e06-3793-49a1-81a4-f74c5adcd474"
+                        },
+                        {
+                            "type": "Ext.form.field.Number",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "allowBlank": false,
+                                "allowDecimals": false,
+                                "blankText": "Поле обязательное для заполнения",
+                                "decimalPrecision": 0,
+                                "fieldLabel": "Счет",
+                                "formBind": false,
+                                "hideTrigger": true,
+                                "labelWidth": 50,
+                                "layout|anchor": null,
+                                "layout|x": 10,
+                                "layout|y": 180,
+                                "name": "account",
+                                "width": 220
+                            },
+                            "name": "MyNumberField4",
+                            "configAlternates": {
+                                "scrollable": "boolean"
+                            },
+                            "designerId": "7a2ae94b-5b89-40b5-b18e-c3d79e6cb473"
+                        },
+                        {
+                            "type": "Ext.form.field.Number",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "allowBlank": false,
+                                "allowDecimals": false,
+                                "blankText": "Поле обязательное для заполнения",
+                                "decimalPrecision": 0,
+                                "fieldLabel": "TСчет",
+                                "formBind": false,
+                                "hideTrigger": true,
+                                "labelWidth": 50,
+                                "layout|anchor": null,
+                                "layout|x": 240,
+                                "layout|y": 180,
+                                "name": "taccount",
+                                "width": 220
+                            },
+                            "name": "MyNumberField5",
+                            "configAlternates": {
+                                "scrollable": "boolean"
+                            },
+                            "designerId": "127dc6bc-2bd7-4c94-8209-38a1007347ac"
+                        },
+                        {
+                            "type": "Ext.form.field.TextArea",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "Адрес отделения",
+                                "labelAlign": "top",
+                                "labelWidth": 70,
+                                "layout|x": 5,
+                                "layout|y": 60,
+                                "name": "address",
+                                "width": 455
+                            },
+                            "name": "MyTextArea",
+                            "configAlternates": {
+                                "scrollable": "boolean"
+                            },
+                            "designerId": "076cb7a8-52ae-40b9-a20f-4ece84f1b6ff"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.form.field.Hidden",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "Label",
+                        "name": "otdel_id"
+                    },
+                    "name": "MyHiddenField7",
+                    "configAlternates": {
+                        "scrollable": "boolean"
+                    },
+                    "designerId": "ad320c0f-64a4-44df-be86-26cffafda726"
+                }
+            ]
+        }
+    ]
+}

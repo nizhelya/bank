@@ -1,0 +1,13 @@
+{
+    "type": "Ext.app.ViewController",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "winClientBanka",
+        "designer|userClassName": "sprav.WinClientBankaViewController"
+    },
+    "designerId": "7db6d3fa-89fd-47eb-a816-78cce78be1ef"
+}

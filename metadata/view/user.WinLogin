@@ -1,0 +1,44 @@
+{
+    "type": "Ext.window.Window",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "closable": false,
+        "designer|userAlias": "winlogin",
+        "designer|userClassName": "user.WinLogin",
+        "height": 346,
+        "hideMode": null,
+        "id": "winLogin",
+        "itemId": null,
+        "layout": "fit",
+        "modal": true,
+        "title": "Авторизация",
+        "width": 657
+    },
+    "configAlternates": {
+        "scrollable": "boolean"
+    },
+    "designerId": "251bf108-f563-4d35-8661-b16084b26058",
+    "viewControllerInstanceId": "35571907-8987-4d1a-a0f7-9b2ccbd08d09",
+    "viewModelInstanceId": "c30060df-de46-424d-9bf4-d5b47c15250a",
+    "cn": [
+        {
+            "type": "linkedinstance",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "height": 312,
+                "style": "background-color: #DCDCDC;"
+            },
+            "name": "user.fmlogin",
+            "designerId": "66c9d44f-61f8-495e-905f-94b63113f17c",
+            "masterInstanceId": "50ee21e0-6921-4ffd-b698-5091e38bc266"
+        }
+    ]
+}

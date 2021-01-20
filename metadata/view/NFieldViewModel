@@ -1,0 +1,13 @@
+{
+    "type": "Ext.app.ViewModel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "nField",
+        "designer|userClassName": "NFieldViewModel"
+    },
+    "designerId": "afa27e4e-f3e3-425d-92f2-93bebc30fc9e"
+}

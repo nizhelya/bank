@@ -1,0 +1,13 @@
+{
+    "type": "Ext.app.ViewController",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "tabPnLeft",
+        "designer|userClassName": "menu.TabPnLeftViewController"
+    },
+    "designerId": "45536343-c14f-47e3-9016-8cf6284814a5"
+}

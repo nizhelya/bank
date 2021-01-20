@@ -1,0 +1,13 @@
+{
+    "type": "Ext.app.ViewModel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "tabOtdelenie",
+        "designer|userClassName": "sprav.TabOtdelenieViewModel"
+    },
+    "designerId": "ea613a2b-671c-4dab-8881-50b02e0e6400"
+}

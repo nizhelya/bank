@@ -1,0 +1,70 @@
+{
+    "type": "arraystore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "data": [
+            "[",
+            "{",
+            "\"usluga\": \"Квартплата\"",
+            "},",
+            "{",
+            "\"usluga\": \"Опалення та ПТН\"",
+            "},",
+            "{",
+            "\"usluga\": \"Водопостачання та водовідведення\"",
+            "},",
+            "{",
+            "\"usluga\": \"Вивiз та зоховання ТПО\"",
+            "},",
+            "{",
+            "\"usluga\": \"Інформаційні послуги\"",
+            "}",
+            "]"
+        ],
+        "designer|userAlias": "stUsluga",
+        "designer|userClassName": "StUsluga",
+        "storeId": "stUsluga"
+    },
+    "designerId": "fba4c4af-c77e-4b3b-ba41-d76493f85c26",
+    "cn": [
+        {
+            "type": "Ext.data.proxy.Ajax",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "name": "MyAjaxProxy1",
+            "designerId": "8c9a06d2-4583-4036-85c6-1d5aaf7c40e3",
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Array",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "name": "MyArrayReader1",
+                    "designerId": "e3fb0b86-c3b2-49b6-addd-20d4a3d5d4a2"
+                }
+            ]
+        },
+        {
+            "type": "Ext.data.field.String",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "usluga"
+            },
+            "name": "MyString66",
+            "designerId": "66ad3710-8c02-4b5c-a2eb-2a8dce327f97"
+        }
+    ]
+}
